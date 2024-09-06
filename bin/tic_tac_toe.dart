@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 /*
 */
 
@@ -18,7 +19,11 @@ void main() {
   late List<List<int>> board;
   int boardSize = 3; //* размер игрового поля по умолчанию
   int state = playing;
-  int currentPlayer = cross; //! Текущий игрок, всегда начинает игрок за 'Х'
+  int randomNumber = Random().nextInt(100);
+  // int currentPlayer = cross; //! Текущий игрок, всегда начинает игрок за 'Х'
+  int currentPlayer = randomNumber % 2 == 0
+      ? cross
+      : nought; //! Текущий игрок, всегда начинает игрок за 'Х'
 
   while (true) {
     stdout.writeln('Enter the size of the board (3-9): ');
